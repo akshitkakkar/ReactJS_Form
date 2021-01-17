@@ -6,6 +6,9 @@ import _ from 'lodash'
 import formFields from '../helpers/formFields'
 import FormField from './FormField'
 
+const validateEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
 /*
     * Pulling userLogin action creator from redux connect and handleSubmit from redux form
 */
@@ -52,6 +55,10 @@ const validate = (values) => {
             errors[name] = "This field is mandatory"
         }
     })
+
+    if(validateEmailRegEx.test(values["email"]) == false) {
+        errors["email"] = "Please enter a valid email address"
+    }
 
     return errors;
 }
