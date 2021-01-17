@@ -1,38 +1,35 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../actions'
+import {reduxForm, Field} from 'redux-form'
+import _ from 'lodash'
+import formFields from '../helpers/formFields'
+import FormField from './FormField'
 
-//pulling userLogin action creator from props
-const Form = ({userLogin}) => {
+/*
+pulling userLogin action creator from redux connect and handleSubmit from redux form
+*/
+const Form = ({userLogin, handleSubmit}) => {
 
-    const [loginCredentials, setLoginCredentials] = useState({email: '', password: ''})
-    
-    const onHandleChange = (event) => {
-        setLoginCredentials({...loginCredentials, [event.target.name]: event.target.value})
-    }
+    const renderFields = () => {
 
-    const submitHandler = (event) => {
-        event.preventDefault();
-        userLogin(loginCredentials);
+        return _.map(formFields, ({label, name}) => {
+            return (
+                <Field key={name} type="text" component={FormField} label={label} name={name}/>
+            )
+        })
     }
 
     return(
         <div className="form-login">
-            <form>
+            <form onSubmit={handleSubmit(values => userLogin(values))}>
                 <h3>Sign In</h3>
-                <div className="form-field">
-                    <label>Email</label>
-                    <input type="text" id="email-field" value={loginCredentials.email} name="email" onChange={onHandleChange}/>
-                </div>
-                <div className="form-field">
-                    <label>Password</label>
-                    <input type="text" id="password-field" value={loginCredentials.password} name="password" onChange={onHandleChange}/>
-                </div>
+                {renderFields()}
                 <div className="form-checkbox">
                     <input id="remember-login" type="checkbox" tabIndex="0"/>
                     <label htmlFor="remember-login">Remember Me?</label>
                 </div>
-                <button onClick={submitHandler} className="form-submit" type="submit">Sign In</button>
+                <button className="form-submit" type="submit">Sign In</button>
                 <div className="form-help">
                     <a href="#">Forgot your password?</a>
                     <p>Don't have an account? <a href="#">Sign up</a></p>
@@ -43,5 +40,27 @@ const Form = ({userLogin}) => {
     )
 }
 
-//connecting to Redux Store
-export default connect(null, actions)(Form)
+/*
+validate function runs onBlur of input fields and right before handleSubmit
+checks for error in fields and blocks submission
+*/
+const validate = (values) => {
+    const errors = {};
+
+    _.each(formFields, ({name}) => {
+        if(!values[name]) {
+            errors[name] = "This field is mandatory"
+        }
+    })
+
+    return errors;
+}
+
+/*
+connecting to Redux Store and Redux Form
+*/
+export default reduxForm({
+    validate,
+    form: 'loginForm',
+    destroyOnUnmount: true
+})(connect(null, actions)(Form))
