@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/ReactJS_Form/static/css/main.aa426553.chunk.css",
+    "main.js": "/ReactJS_Form/static/js/main.94aee282.chunk.js",
+    "main.js.map": "/ReactJS_Form/static/js/main.94aee282.chunk.js.map",
+    "runtime-main.js": "/ReactJS_Form/static/js/runtime-main.a41ae5cb.js",
+    "runtime-main.js.map": "/ReactJS_Form/static/js/runtime-main.a41ae5cb.js.map",
+    "static/css/2.21b32880.chunk.css": "/ReactJS_Form/static/css/2.21b32880.chunk.css",
+    "static/js/2.2cb5a37a.chunk.js": "/ReactJS_Form/static/js/2.2cb5a37a.chunk.js",
+    "static/js/2.2cb5a37a.chunk.js.map": "/ReactJS_Form/static/js/2.2cb5a37a.chunk.js.map",
+    "static/js/3.b890ebff.chunk.js": "/ReactJS_Form/static/js/3.b890ebff.chunk.js",
+    "static/js/3.b890ebff.chunk.js.map": "/ReactJS_Form/static/js/3.b890ebff.chunk.js.map",
+    "index.html": "/ReactJS_Form/index.html",
+    "static/css/2.21b32880.chunk.css.map": "/ReactJS_Form/static/css/2.21b32880.chunk.css.map",
+    "static/css/main.aa426553.chunk.css.map": "/ReactJS_Form/static/css/main.aa426553.chunk.css.map",
+    "static/js/2.2cb5a37a.chunk.js.LICENSE.txt": "/ReactJS_Form/static/js/2.2cb5a37a.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/ReactJS_Form/static/media/roboto-latin-900italic.cb5ad999.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a41ae5cb.js",
+    "static/css/2.21b32880.chunk.css",
+    "static/js/2.2cb5a37a.chunk.js",
+    "static/css/main.aa426553.chunk.css",
+    "static/js/main.94aee282.chunk.js"
+  ]
+}
