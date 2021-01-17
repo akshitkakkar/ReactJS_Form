@@ -14,8 +14,8 @@ const Form = () => {
                     <input type="text" name="last-name"/>
                 </div>
                 <div className="form-checkbox">
-                    <input type="checkbox" tabindex="0"/>
-                    <label>Remember Me?</label>
+                    <input id="remember-login" type="checkbox" tabindex="0"/>
+                    <label for="remember-login">Remember Me?</label>
                 </div>
                 <button class="form-submit" type="submit">Sign In</button>
                 <div className="form-help">
