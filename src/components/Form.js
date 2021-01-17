@@ -13,9 +13,9 @@ const Form = ({userLogin, handleSubmit}) => {
 
     const renderFields = () => {
 
-        return _.map(formFields, ({label, name}) => {
+        return _.map(formFields, ({label, name, type}) => {
             return (
-                <Field key={name} type="text" component={FormField} label={label} name={name}/>
+                <Field key={name} type={type} component={FormField} label={label} name={name}/>
             )
         })
     }
