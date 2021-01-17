@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default ({input, label, loginCredentials, meta: {error, touched}}) => {
+/**
+ * Helper method to dynamically render form field elements incorporating redux-form validation
+ */
+export default ({input, label, meta: {error, touched}}) => {
     return (
         <div className="form-field">
             <label>{label}</label>

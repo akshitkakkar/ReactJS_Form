@@ -7,7 +7,7 @@ import formFields from '../helpers/formFields'
 import FormField from './FormField'
 
 /*
-pulling userLogin action creator from redux connect and handleSubmit from redux form
+    * Pulling userLogin action creator from redux connect and handleSubmit from redux form
 */
 const Form = ({userLogin, handleSubmit}) => {
 
@@ -41,8 +41,8 @@ const Form = ({userLogin, handleSubmit}) => {
 }
 
 /*
-validate function runs onBlur of input fields and right before handleSubmit
-checks for error in fields and blocks submission
+    * Validate function runs onBlur of input fields and right before handleSubmit
+    * Checks for error in fields and blocks submission
 */
 const validate = (values) => {
     const errors = {};
@@ -57,7 +57,7 @@ const validate = (values) => {
 }
 
 /*
-connecting to Redux Store and Redux Form
+    * Connecting to Redux Store and Redux Form
 */
 export default reduxForm({
     validate,
