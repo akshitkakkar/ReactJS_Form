@@ -4,11 +4,18 @@ import './index.css';
 import 'typeface-roboto'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import reduxThunk from 'redux-thunk';
+import reducers from './reducers'
 
-ReactDOM.render(
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
+ReactDOM.render(<Provider store={store}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
